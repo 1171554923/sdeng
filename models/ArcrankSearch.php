@@ -5,21 +5,21 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Admin;
+use app\models\Arcrank;
 
 /**
- * AdminSearch represents the model behind the search form about `app\models\Admin`.
+ * ArcrankSearch represents the model behind the search form about `app\models\Arcrank`.
  */
-class AdminSearch extends Admin
+class ArcrankSearch extends Arcrank
 {
     /**
      * @inheritdoc
      */
     public function rules()
     {
-        return [           
-            [['id', 'add_time', 'last_login', 'manage_level', 'count_login'], 'integer'],
-            [['username', 'email', 'password', 'last_ip'], 'safe'],
+        return [
+            [['id', 'rank', 'adminrank', 'money', 'scores'], 'integer'],
+            [['membername', 'purviews'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class AdminSearch extends Admin
      */
     public function search($params)
     {
-        $query = Admin::find();
+        $query = Arcrank::find();
 
         // add conditions that should always apply here
 
@@ -60,16 +60,14 @@ class AdminSearch extends Admin
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'add_time' => $this->add_time,
-            'last_login' => $this->last_login,
-            'manage_level' => $this->manage_level,
-            'count_login' => $this->count_login,
+            'rank' => $this->rank,
+            'adminrank' => $this->adminrank,
+            'money' => $this->money,
+            'scores' => $this->scores,
         ]);
 
-        $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'password', $this->password])
-            ->andFilterWhere(['like', 'last_ip', $this->last_ip]);
+        $query->andFilterWhere(['like', 'membername', $this->membername])
+            ->andFilterWhere(['like', 'purviews', $this->purviews]);
 
         return $dataProvider;
     }

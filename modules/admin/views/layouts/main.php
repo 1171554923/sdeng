@@ -10,6 +10,8 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+$str = "#yii-debug-toolbar{display:none !important}";
+$this->registerCss($str);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,16 +22,22 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+   	
 </head>
 <body>
-<div class="container">
-        <?= Breadcrumbs::widget([
+<?php $this->beginBody() ?>
+
+<div class="wrap">
+    <div class="container">
+         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        ]) ?> 
         <?= $content ?>
     </div>
 </div>
 
+
+<?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>

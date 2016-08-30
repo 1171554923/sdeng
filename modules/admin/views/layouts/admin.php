@@ -1,12 +1,10 @@
 <?php   
 namespace app\modules\admin\views;
 
-use yii\widgets\Breadcrumbs;
+
 use app\assets\AppAsset;
 use Yii;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 
 
 $session = Yii::$app->session;
@@ -23,6 +21,7 @@ AppAsset::register($this);
 		<link href="admin/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="admin/css/font-awesome.min.css" />
 		 <link href="/assets/cb2d7fd4/css/bootstrap.css" rel="stylesheet">
+		  <?= Html::csrfMetaTags() ?>
 			<?php $this->head() ?>
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="/css/font-awesome-ie7.min.css" />
@@ -287,7 +286,7 @@ AppAsset::register($this);
 								<img class="nav-user-photo" src="admin/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎光临,</small>
-									<?= $session->get('user');?>
+									<?=$session->get('user')?>
 								</span>
 
 								<i class="icon-caret-down"></i>
@@ -399,14 +398,14 @@ AppAsset::register($this);
 								</li>
 
 								<li>
-									<a href="buttons.html">
+									<a href="?r=admin/arcrank">
 										<i class="icon-double-angle-right"></i>
 										会员级别设置
 									</a>
 								</li>
 
 								<li>
-									<a href="treeview.html">
+									<a href="?r=admin/scores">
 										<i class="icon-double-angle-right"></i>
 										积分头衔设置
 									</a>

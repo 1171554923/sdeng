@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Admin */
+/* @var $model app\models\Arcrank */
 
-$this->title = $model->username;
-$this->params['breadcrumbs'][] = ['label' => 'Admins', 'url' => ['index']];
+$this->title = $model->membername;
+$this->params['breadcrumbs'][] = ['label' => 'Arcranks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -19,9 +19,9 @@ $this->params['breadcrumbs'][] = $this->title;
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="?r=admin/admin">用户管理</a>
+								<a href="?r=admin/arcrank">等级管理</a>
 							</li>
-							<li class="active">管理员视图</li>
+							<li class="active">等级视图</li>
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -33,8 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							</form>
 						</div><!-- #nav-search -->
 					</div>
-					
-<div class="admin-view">
+<div class="arcrank-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -53,14 +52,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'username',
-            'email:email',
-            'password',
-            'add_time:datetime',
-            'last_login',
-            'last_ip',
-            'manage_level',
-            'count_login',
+            'rank',
+            'membername',
+            'adminrank',
+            'money',
+            'scores',
+            'purviews:ntext',
         ],
     ]) ?>
 

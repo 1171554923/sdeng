@@ -12,20 +12,30 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public $password;    
     public $authKey;
     public $accessToken;
-
     
+    
+    
+ 
     public static function tableName()
     {
         return '{{sd_admin}}';
     }
     
     
+   
     
-    private static $users = [
-        '100' => [
+    private static  function allUser()
+    {
+         $user = new Admin();
+         $admin = $user->find()->asArray()->all();
+         return $admin;
+    }
+
+/*  private static $users =  [
+       '100' => [
             'id' => '100',
-            'username' => 'admin',
-            'password' => '123456',
+            'username' => 'liaoziran',
+            'password' => 'e10adc3949ba59abbe56e057f20f883e',
             'authKey' => 'test100key',
             'accessToken' => '100-token',
         ],
@@ -36,7 +46,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'authKey' => 'test101key',
             'accessToken' => '101-token',
         ],
-    ];
+    ];  */
     
     /**
      * @inheritdoc
@@ -52,7 +62,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        $users = self::allUser();
+        return isset($users[$id]) ? new static($users[$id]) : null;
     }
 
     /**
@@ -60,7 +71,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
+        $users = self::allUser();
+        foreach ( $users as $user) {
             if ($user['accessToken'] === $token) {
                 return new static($user);
             }
@@ -77,7 +89,16 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function findByUsername($username)
     {
-        $user = User::find()
+        $users = self::allUser();
+         foreach ($users as $user) {
+            if (strcasecmp($user['username'], $username) === 0) {
+                return new static($user);
+            }
+        }
+        
+        return null; 
+        
+      /*   $user = User::find()
         ->where(['user_name' => $username])
         ->asArray()
         ->one();
@@ -86,7 +107,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             return new static($user);
         }
         
-        return null;
+        return null; */
     }
 
     /**

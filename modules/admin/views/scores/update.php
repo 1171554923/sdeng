@@ -3,14 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Admin */
+/* @var $model app\models\Scores */
 
-$this->title = 'name : ' . $model->username;
-$this->params['breadcrumbs'][] = ['label' => 'Admins', 'url' => ['index']];
+$this->title = 'Update Scores: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Scores', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-
 <div class="breadcrumbs" id="breadcrumbs">
 						<script type="text/javascript">
 							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
@@ -19,9 +18,9 @@ $this->params['breadcrumbs'][] = 'Update';
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="?r=admin/admin">用户管理</a>
+								<a href="?r=admin/scores">积分头衔设置</a>
 							</li>
-							<li class="active">修改管理员信息</li>
+							<li class="active">修改头衔头衔</li>
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -33,7 +32,7 @@ $this->params['breadcrumbs'][] = 'Update';
 							</form>
 						</div><!-- #nav-search -->
 					</div>
-<div class="admin-update">
+<div class="scores-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

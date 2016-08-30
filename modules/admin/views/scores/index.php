@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\AdminSearch */
+/* @var $searchModel app\models\ScoresSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '管理员中心';
+$this->title = '头衔设置';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -19,9 +19,9 @@ $this->params['breadcrumbs'][] = $this->title;
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="?r=admin/admin">用户管理</a>
+								<a href="?r=admin/scores">积分头衔设置</a>
 							</li>
-							<li class="active">管理员中心</li>
+							
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -33,30 +33,24 @@ $this->params['breadcrumbs'][] = $this->title;
 							</form>
 						</div><!-- #nav-search -->
 					</div>
-
-<div class="admin-index">
+<div class="scores-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Admin', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Scores', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'username',
-            'email:email',
-            'password',
-            'add_time:datetime',
-            // 'last_login',
-            // 'last_ip',
-            // 'manage_level',
-            // 'count_login',
+            
+            'titles',
+            'icon',
+            'integral',
+            'isdefault',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

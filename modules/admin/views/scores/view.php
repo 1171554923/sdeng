@@ -4,12 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Admin */
+/* @var $model app\models\Scores */
 
-$this->title = $model->username;
-$this->params['breadcrumbs'][] = ['label' => 'Admins', 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Scores', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 
 <div class="breadcrumbs" id="breadcrumbs">
 						<script type="text/javascript">
@@ -19,9 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="?r=admin/admin">用户管理</a>
+								<a href="?r=admin/scores">积分头衔设置</a>
 							</li>
-							<li class="active">管理员视图</li>
+							<li class="active">头衔视图</li>
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -33,8 +34,10 @@ $this->params['breadcrumbs'][] = $this->title;
 							</form>
 						</div><!-- #nav-search -->
 					</div>
-					
-<div class="admin-view">
+
+
+
+<div class="scores-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -53,14 +56,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'username',
-            'email:email',
-            'password',
-            'add_time:datetime',
-            'last_login',
-            'last_ip',
-            'manage_level',
-            'count_login',
+            'titles',
+            'icon',
+            'integral',
+            'isdefault',
         ],
     ]) ?>
 

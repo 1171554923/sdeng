@@ -4,13 +4,12 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\AdminSearch */
+/* @var $searchModel app\models\ArcrankSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '管理员中心';
+$this->title = '等级管理  ';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
 <div class="breadcrumbs" id="breadcrumbs">
 						<script type="text/javascript">
 							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
@@ -19,9 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="?r=admin/admin">用户管理</a>
+								<a href="?r=admin/arcrank">等级管理</a>
 							</li>
-							<li class="active">管理员中心</li>
+							
 						</ul><!-- .breadcrumb -->
 
 						<div class="nav-search" id="nav-search">
@@ -33,30 +32,28 @@ $this->params['breadcrumbs'][] = $this->title;
 							</form>
 						</div><!-- #nav-search -->
 					</div>
+<div class="arcrank-view">
 
-<div class="admin-index">
+<div class="arcrank-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Admin', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Arcrank', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'username',
-            'email:email',
-            'password',
-            'add_time:datetime',
-            // 'last_login',
-            // 'last_ip',
-            // 'manage_level',
-            // 'count_login',
+            'membername',
+            'rank',            
+            'adminrank',
+            'money',
+            'scores',
+            // 'scores',
+            // 'purviews:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

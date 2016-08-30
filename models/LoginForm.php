@@ -34,9 +34,9 @@ class LoginForm extends Model
             ['password', 'required','message'=>'用户密码不能为空'],
             ['password','string','max'=>40,'min'=>6,'tooLong'=>'密码不能大于40位','tooShort'=>'密码名不能小于6位'],
             
-              ['captcha','captcha','message'=>'验证码错误','captchaAction'=>'admin/login/captcha'],
+            ['captcha','captcha','message'=>'验证码错误','captchaAction'=>'admin/login/captcha'],
             ['captcha', 'string','min'=>4,'message'=>'验证码错误'],
-            ['captcha', 'required','message'=>'验证码不能为空'],   
+            ['captcha', 'required','message'=>'验证码不能为空'], 
             
             
             // rememberMe must be a boolean value
@@ -68,7 +68,7 @@ class LoginForm extends Model
     public function validatePassword($attribute, $params)
     {
         if (!$this->hasErrors()) {
-            $user = $this->getUser(); 
+            $user = $this->getUser();            
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, '用户密码或者账号错误!');
             }
@@ -82,9 +82,9 @@ class LoginForm extends Model
     public function login()
     {        
             $admin = new Admin();
-            $user = $admin->find()->where(['user_name'=>$this->username])->one();
+            $user = $admin->find()->where(['username'=>$this->username])->one();
             
-            $user->user_name = $this->username;
+            $user->username = $this->username;
             $user->password = md5($this->password);
             $user->last_login = time();
             $user->last_ip = $_SERVER['REMOTE_ADDR'];
@@ -92,16 +92,16 @@ class LoginForm extends Model
                       
             if($user->save())
             {      
-                return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
-              /*   $session = Yii::$app->session;
+               
+                $session = Yii::$app->session;
                 
                 if(!$session->isActive)
-                {                   
+                {
                     $session->open();
-                    
                 }
-                             
-                $session->set('user',$this->username);        */      
+                $session->set('user',$this->username);
+                
+                return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);                  
           }
     }
 
@@ -112,9 +112,10 @@ class LoginForm extends Model
      */
     public function getUser()
     {
-        if ($this->_user === false) {
+       
+         if ($this->_user === false) {
             $this->_user = User::findByUsername($this->username);
-        }
+        } 
 
         return $this->_user;
     }

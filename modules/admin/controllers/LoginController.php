@@ -15,7 +15,7 @@ class LoginController extends Controller
      * Renders the index view for the module
      * @return string
      */
-//     public $layout = 'main';
+    public $layout = 'main';
     
     /**
      * 登陆界面 

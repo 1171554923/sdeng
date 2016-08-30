@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\AdminSearch */
+/* @var $model app\models\ArcrankSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="admin-search">
+<div class="arcrank-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,21 +17,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'rank') ?>
 
-    <?= $form->field($model, 'email') ?>
+    <?= $form->field($model, 'membername') ?>
 
-    <?= $form->field($model, 'password') ?>
+    <?= $form->field($model, 'adminrank') ?>
 
-    <?= $form->field($model, 'add_time') ?>
+    <?= $form->field($model, 'money') ?>
 
-    <?php // echo $form->field($model, 'last_login') ?>
+    <?php // echo $form->field($model, 'scores') ?>
 
-    <?php // echo $form->field($model, 'last_ip') ?>
-
-    <?php // echo $form->field($model, 'manage_level') ?>
-
-    <?php // echo $form->field($model, 'count_login') ?>
+    <?php // echo $form->field($model, 'purviews') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

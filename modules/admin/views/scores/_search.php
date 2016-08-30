@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\AdminSearch */
+/* @var $model app\models\ScoresSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="admin-search">
+<div class="scores-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,21 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'titles') ?>
 
-    <?= $form->field($model, 'email') ?>
+    <?= $form->field($model, 'icon') ?>
 
-    <?= $form->field($model, 'password') ?>
+    <?= $form->field($model, 'integral') ?>
 
-    <?= $form->field($model, 'add_time') ?>
-
-    <?php // echo $form->field($model, 'last_login') ?>
-
-    <?php // echo $form->field($model, 'last_ip') ?>
-
-    <?php // echo $form->field($model, 'manage_level') ?>
-
-    <?php // echo $form->field($model, 'count_login') ?>
+    <?= $form->field($model, 'isdefault') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

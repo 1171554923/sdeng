@@ -69,17 +69,24 @@ class AdminController extends Controller
     public function actionCreate()
     {
         $model = new Admin();
-       
-        if ($model->load(Yii::$app->request->post())) {
-            $_POST['Admin']['password'] = md5($_POST['Admin']['password']);
-            if($model->save()){
-                return $this->redirect(['view', 'id' => $model->use_id]);
-            }      
-        } else {
+        
+       if(Yii::$app->request->post())
+       {          
+           $username = $_POST['Admin']['username'];
+           $model->username = $username;
+           $model->password = md5($_POST['Admin']['password']);
+           $model->email = $_POST['Admin']['email'];
+           $model->manage_level = $_POST['Admin']['manage_level'];
+           $model->authKey = 'test'.$username.'key';                 
+           $model->accessToken = $username.'-tokey';
+           if($model->save()){
+               return $this->redirect(['view', 'id' => $model->id]);
+           }         
+       }else {
             return $this->render('create', [
                 'model' => $model,
             ]);
-        }
+        }       
     }
 
     /**
@@ -90,13 +97,26 @@ class AdminController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-       
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $_POST['Admin']['password'] = md5($_POST['Admin']['password']);
-            if($model->save()){
-                return $this->redirect(['view', 'id' => $model->use_id]);
-            }            
+        $model = $this->findModel($id);       
+        if(Yii::$app->request->post())
+        {
+            $model = new Admin();
+            $user =  $model->find()->where(['id'=>$id])->one();
+            $username = $_POST['Admin']['username'];
+            $user->username = $username;
+            if($_POST['Admin']['password'] === $user['password'] )
+            {              
+               $user->password = $user['password'];
+            }
+            else 
+            {              
+                $user->password = md5($_POST['Admin']['password']);
+            }                          
+            $user->email = $_POST['Admin']['email'];
+            $user->manage_level = $_POST['Admin']['manage_level'];
+            if($user->save()){
+                return $this->redirect(['view', 'id' => $user->id]);
+            }   
         } else {
             return $this->render('update', [
                 'model' => $model,
