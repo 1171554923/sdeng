@@ -103,38 +103,15 @@ $session =Yii::$app->session;
 													
 												 <?= $form->field($model,'captcha')->widget(yii\captcha\Captcha::className(),
 											
-
-	    [
-											
-
-	    'captchaAction'=>'login/captcha',
-											
-
-	    'imageOptions'=>['alt'=>'点击换图',
-											
-
-	     'title'=>'点击换图', '
-											
-
-	      style'=>'cursor:pointer'],
-											
-
-	      'template'=>"<div class=\"row\"><div class=\"col-xs-6\">{input}
-
-</div><div class=\"col-xs-6\">
-
-{image}</div></div>",									
-
-			        
-											
-
-	        ]) ?>
-													
-													
-																																
-													<div class="space"></div>
-																																	
-																																						
+	    [											
+	    'captchaAction'=>'login/captcha',											
+	    'imageOptions'=>['alt'=>'点击换图',											
+	    'title'=>'点击换图',
+	    'style'=>'cursor:pointer'],											
+	    'template'=>"<div class=\"row\"><div class=\"col-xs-6\">{input}</div><div class=\"col-xs-6\">
+{image}</div></div>",			        						
+	        ]) ?>																																														
+													<div class="space"></div>																																																																					
 													<div class="clearfix">
 														<label class="inline">															
 															<span class="lbl">															

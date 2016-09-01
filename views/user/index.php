@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 $this->title='登陆';
 ?>
 
@@ -17,20 +18,33 @@ $this->title='登陆';
             <body>                                
             <div class="logo_box">
             	<h3>水灯社区欢迎你</h3>
-            	<form action="#" name="f" method="post">
+            	<?php  $form = ActiveForm::begin()?>
             		<div class="input_outer">
-            			<span class="u_user"></span>
-            			<input name="logname" class="text" onFocus=" if(this.value=='输入ID或用户名登录') this.value=''" onBlur="if(this.value=='') this.value='输入ID或用户名登录'" value="输入ID或用户名登录" style="color: #FFFFFF !important" type="text">
+            			<span class="u_user"></span><?= $form->field($model, 'user',
+            			    ['template'=>"<input id=\"loginform-user\" name=\"LoginForm[user]\"
+            			        class=\"text\" placeholder=\"输入ID或用户名登录\"
+            			        style=\"color: #FFFFFF !
+                        important\" type=\"text\"><div class=\"error\">{error}</div>"])?>
+											
             		</div>
-            		<div class="input_outer">
-            			<span class="us_uer"></span>
-            			<label class="l-login login_password" style="color: rgb(255, 255, 255);display: block;">输入密码</label>
-            			<input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;" onFocus="$('.login_password').hide()" onBlur="if(this.value=='') $('.login_password').show()" value="" type="password">
-            		</div>
-            		<div class="mb2"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div>
-            		<input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>记住用户名</span>
-            	</form>
-            	<a href="#" class="login-fgetpwd" >忘记密码？</a>
+            		
+				<div class="input_outer">            			
+	<span class="u_user"></span><?= $form->field($model, 'userpassword',
+            			    ['template'=>"<input id=\"loginform-userpassword\" name=\"LoginForm[userpassword]\"
+            			        class=\"text\" placeholder=\"输入用户密码\"
+            			        style=\"color: #FFFFFF !
+                        important\" type=\"text\"><div class=\"error\">{error}</div>"])?>
+            		</div>								
+															
+															
+            		<div class="mb2">
+            		<?= Html::submitButton('登陆',['class'=>'submit'])?>            		 
+            		 </div>
+            		 <a href="?r=user/forget" class="login-fgetpwd" >忘记密码？</a>
+            		 <?= $form->field($model,'rememberMe',['template'=>'记住密码 <input id="loginform-rememberme" class="form-control" type="checkbox" value="1" name="LoginForm[rememberMe]">']) ?>            		 
+            	<?php ActiveForm::end()?>
+            	
+            	
             	<div class="logins">
             		<div class="wx">
             			<img src="index\images\weixin.png"/>
@@ -40,11 +54,8 @@ $this->title='登陆';
             		</div>
             	</div>
             	<div class="sas">
-            		<a href="#">还没注册账号！</a>
+            		<a href="?r=user/register">还没注册账号！</a>
             	</div>
-<!--             	<div class="sas"> 
-            		<a href="#" style="color: red;">亲哈社区电商地址，亲购物，轻生活！</a>
-<!--             	</div> -->
             </div>            
 	</body>
 </html>

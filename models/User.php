@@ -8,8 +8,10 @@ use yii\web\IdentityInterface;
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     public $id;
-    public $username;
-    public $password;    
+    public $username; //后端用户名
+    public $password; //后端密码登陆
+    public $user; //前段用户名
+    public $userpassword; //前段密码
     public $authKey;
     public $accessToken;
     
@@ -96,18 +98,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             }
         }
         
-        return null; 
-        
-      /*   $user = User::find()
-        ->where(['user_name' => $username])
-        ->asArray()
-        ->one();
-    
-        if($user){
-            return new static($user);
-        }
-        
-        return null; */
+        return null;       
     }
 
     /**

@@ -13,10 +13,13 @@ use yii\base\Model;
  */
 class LoginForm extends Model
 {
-    public $username;
-    public $password;
+    public $username; //后端登陆账号
+    public $password; //后端登陆密码
     public $rememberMe = true;
+    public $user;  //前段用户名
+    public $userpassword; //前段用户密码
     public $captcha;
+   
 
     private $_user = false;
 
@@ -26,13 +29,14 @@ class LoginForm extends Model
      */
     public function rules()
     {
-        return [
+        return [            
              // username and password are both required
-            ['username', 'required','message'=>'用户名不能为空'],
-            ['username','string','max'=>40,'min'=>2,'tooLong'=>'用户名不能大于40位','tooShort'=>'用户名不能小于2位'],
+            [['username','user'], 'required','message'=>'用户名不能为空'],
+            [['username','user'],'string','max'=>40,'min'=>2,'tooLong'=>'用户名不能大于40位','tooShort'=>'用户名不能小于2位'],
             
-            ['password', 'required','message'=>'用户密码不能为空'],
-            ['password','string','max'=>40,'min'=>6,'tooLong'=>'密码不能大于40位','tooShort'=>'密码名不能小于6位'],
+            
+            [['password','userpassword'], 'required','message'=>'用户密码不能为空'],
+            [['password','userpassword'],'string','max'=>40,'min'=>6,'tooLong'=>'密码不能大于40位','tooShort'=>'密码名不能小于6位'],
             
             ['captcha','captcha','message'=>'验证码错误','captchaAction'=>'admin/login/captcha'],
             ['captcha', 'string','min'=>4,'message'=>'验证码错误'],
@@ -42,7 +46,8 @@ class LoginForm extends Model
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['password', 'validatePassword'], 
+            ['userpassword','validateUserPassword']
             
         ];
     }
@@ -55,9 +60,22 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'captcha'=>'验证码 :'
+            'captcha'=>'验证码 :',
+            'rememberMe'=>'记住密码'
         ];
     }
+    /**
+     * 验证前段密码
+     * @param unknown $attribute
+     * @param unknown $params
+     */
+    public  function validateUserPassword()
+    {
+        
+            
+    }
+    
+    
     /**
      * Validates the password.
      * This method serves as the inline validation for password.
@@ -116,7 +134,8 @@ class LoginForm extends Model
          if ($this->_user === false) {
             $this->_user = User::findByUsername($this->username);
         } 
-
         return $this->_user;
     }
+    
+    
 }
