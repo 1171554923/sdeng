@@ -3,7 +3,7 @@ body{font-family:"微软雅黑",sans-serif;}
 *{margin:0;padding:0}
 input[type="text"],input[type="submit"],button{border:none}
 a,a:hover {text-decoration: none;}
-
+li{ list-style: none ;}
 
 /*工具提示样式*/
 .error{color:red;line-height: 40px; height: 40px;}

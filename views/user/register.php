@@ -6,8 +6,9 @@ use yii\bootstrap\ActiveForm;
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
         <head>
-       	 <meta charset="<?= Yii::$app->charset ?>">
+       	 <meta charset="<?= Yii::$app->charset ?>">       	 
          <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel = "Shortcut Icon" href="index\images\web_icon.ico" />
          <title><?=Html::encode($this->title) ?></title>
          <?=Html::cssFile('@web/index/css/common.css') ?>
          <?=Html::cssFile('@web/index/css/register.css') ?>

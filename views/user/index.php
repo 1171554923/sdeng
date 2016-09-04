@@ -9,6 +9,7 @@ $this->title='登陆';
         <head>
         <meta charset="<?= Yii::$app->charset ?>">
          <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel = "Shortcut Icon" href="index\images\web_icon.ico" />
          <?= Html::csrfMetaTags() ?>
             <title><?= Html::encode($this->title) ?></title>
 			<?=Html::cssFile('@web/index/css/common.css') ?>                       

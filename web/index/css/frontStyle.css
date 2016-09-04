@@ -1,0 +1,77 @@
+@CHARSET "UTF-8";
+body { background:red url(../images/background.jpg) fixed center center; height: 1000px;background-size: 100%;}
+.main{ width: 100%; height: auto;}
+header{ height: 80px; background: #000000; width: 94%; padding: 0 3%;}
+header .top{height:60px ; line-height: 60px; width: 100%;padding-top:10px}
+header .logo {  background:  url(../images/logo.png) no-repeat ; display: block; width: 200px; height: 100%; float: left;}
+header .menu { float: left;}
+header .menu li ,header .user li  { float: left; margin: 0  20px;}
+header .menu li a{ color: #ffffff; font-size: 18px; font-weight: bold; padding: 0 10px;}
+header .menu .check{ border-bottom:  1px solid #C9B010; }
+header .menu li a:hover {color: #C9B010;}
+header .user {float:  right;}
+header .user li{margin: 10px 5px;}
+header .user .update,header .user .login{background: #C9B010; height: 40px; line-height: 40px; text-align: center ;}
+header .user .login{padding: 0 30px;}
+header .user .update  a { padding: 0 50px; background:  url(../images/icon/icon.png) 30px 0 no-repeat; }
+header .user .update  a,header .user .login a { color: #ffffff; font-size: 16px; font-weight: bold;} 
+
+nav { background:#3C3C3A ; height: 50px; line-height: 50px; padding: 0 3%;width: 100% }
+nav a{ padding: 0 10px; color: #ffffff; font-size: 16px;  font-weight:  bold;}
+nav a:hover{ color: #C9B010 }
+nav .serach{float: right;margin-right: 100px;}
+
+
+.main_content{ background:#ffffff; width: 94%; margin: 70px auto; height: 1000px;
+		  -webkit-box-shadow: 3px 3px 3px;  
+			  -moz-box-shadow: 3px 3px 3px;  
+			  box-shadow: 0px 2px 5px;  
+ }
+
+ .captain_content {width: 100% ; border-bottom: 1px solid #ccc; height: 360px; 0}
+ .main_left { width: 71%; height: 100%;  padding: 2% ; float: left; }
+
+.main_left .carousel {width: 60%; height: 340px; float: left; overflow: hidden;}
+.main_left .carousel ul{position: relative; width: 100% ; height: 100%; height: 100%;overflow: hidden;}
+.main_left .carousel ul li {float: left;padding: inherit;margin: inherit;list-style: none; width: 100%;text-align: center;}
+.main_left .carousel ul li img{width: 100%; height: 100%}
+.main_left .carousel  ol{ position:relative;width: 80px;height: 20px; top:-32px;left: 40%}
+.main_left .carousel ol li{float:left;width: 10px;height: 10px;margin: 5px;background: #fff; }
+.main_left .carousel ol li.seleted{background: #1AA4CA;}
+
+.main_left .side_content{width: 38%; height:350px; float: right;}
+.main_left .side_content dl{float: left; border-bottom: 1px solid #ccc; height: 30%;margin: 1.5% 0; width: 100%}
+.main_left .side_content dl dd{width: 40%;float: left;}
+.main_left .side_content dl dt{width: 60%;float: left; font-size: 12px; padding: 0px;}
+.main_left .side_content dl dt .clock{margin-top :22%; }
+
+.main_left .side_content dl dt span{padding-right: 20px;display: inline-block; background:url(../images/icon/tool.png) no-repeat 57px -84px ;} 
+.main_left .side_content dl dt em {display: inline-block; width: 130px; float: right;}
+
+.main_left .side_content dl dt em  i, .bottom_s i {background: url(../images/icon/tool.png) no-repeat 0 0; width: 40px;text-indent: 20px; display: inline-block; font-style: normal;}
+ .main_left .side_content dl dt em .notzan{background: url(../images/icon/tool.png) no-repeat 0px -25px ; }
+.main_left .side_content dl dt em .comment{background: url(../images/icon/tool.png) no-repeat 0px -55px} 
+
+
+.user_share { margin: 20px 0}
+.user_share dl{ width: 48%; height: 470px;  float: left; margin-right: 2%;}
+.user_share dl dd{ width: 100%;}
+.user_share dl dd img {width: inherit;}
+.user_share dl dt h3{margin: 5px 0 }
+.user_share .author{ width: 100%; height: 40px; border-bottom:1px solid #ccc; border-top:1px solid #ccc; padding: 5px 0;}
+.user_share .author .author_i{height: 100%; float: left;}
+.user_share .author .author_n{float: left; margin: 0 10px;}
+.user_share .author .author_n p{ height: 20px;  padding: 0px; margin: 0px; color: #999;}
+.user_share .author .author_n p span{color: #999; font-family:  "粗体"; font-weight: bold;}
+.user_share .author .click_z { float: right; width: 100px; height: inherit;}
+.user_share .author .click_z span{border:1px solid #ccc; border-radius: 5px; width: 35px; height:35px; display: inline-block; background: url(../images/icon/tool.png) no-repeat 6px 11px; cursor: pointer; }
+.user_share .author .click_z .notzan{ background: url(../images/icon/tool.png) no-repeat 6px -16px;}
+
+.user_share .author .click_z .notzan:hover{background:  #4FCB03 url(../images/icon/tool.png) no-repeat 6px -128px; }
+.user_share .author .click_z .zan:hover{background:  #4FCB03 url(../images/icon/tool.png) no-repeat 6px -100px;  }
+.user_share .bottom_s{color: #999; font-size: 12px; margin-top:8px;}
+.user_share .bottom_s em{float: right;}
+
+
+ .main_right{width: 24%;height: 100%; border-left:1px solid #ccc; float: left;}}
+}
