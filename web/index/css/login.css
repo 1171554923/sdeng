@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
 body{font-size:14px;background:url(../images/56a46b7590f5672af5b8.jpg) fixed center center}
+.back a{ color:#fff; font-size:20px; height: 40px;display: inline-block; line-height: 40px; margin-top: 10px; text-indent: 20px; width: 120px;}
 .logo_box{width:280px;height:490px;padding:35px;color:#EEE;position:absolute;left:50%;top:100px;margin-left:-175px}
 .logo_box h3{text-align:center; height:20px;font:26px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;color:#FFF;height:20px;line-height:20px;padding:0 0 35px 0}
 .forms{width:280px;height:485px}

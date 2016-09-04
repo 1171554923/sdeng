@@ -30,7 +30,7 @@ $this->title='水灯社区  - 有趣的视频和有趣的图片 --就水灯吧';
                 				</ul>                			
                 				<ul class="user">
                 					<li class="update"><a href="#">上传</a></li>
-                					<li class="login"><a href="#">登陆</a></li>
+                					<li class="login"><a href="?r=user" target="_blank">登陆</a></li>
                 				</ul>	                				
                 		</div>                		
                 	</header> 

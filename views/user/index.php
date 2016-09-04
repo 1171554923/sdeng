@@ -16,7 +16,8 @@ $this->title='登陆';
             <?=Html::cssFile('@web/index/css/login.css') ?>
             <?=Html::jsFile('@web/index/js/jquery-1.7.2.min.js')?>
         </head>                
-            <body>                                
+            <body>
+            <div class="back"><a href="?r=index"><img src="index/images/arrow_ll.png" width=12%/> 返回</a></div>                                
             <div class="logo_box">
             	<h3>水灯社区欢迎你</h3>
             	<?php  $form = ActiveForm::begin()?>
