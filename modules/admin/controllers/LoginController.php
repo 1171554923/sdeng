@@ -23,14 +23,13 @@ class LoginController extends Controller
      */
     public function actionIndex()
     {                
-            $request = Yii::$app->request;
-            
+            $request = Yii::$app->request;           
             $model = new LoginForm();
             if($model->load(Yii::$app->request->post()))
             {
-               if($model->validate())
+               if($model->validate() && $model->login())
                {
-                   $model->login();
+                   
                    $this->redirect(['default/index']);
                }               
             }                                    

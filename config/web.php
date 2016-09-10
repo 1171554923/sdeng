@@ -8,6 +8,10 @@ $config = [
     'bootstrap' => ['log'],
     'defaultRoute' => 'index',//设置默认控制器;
     'components' => [
+        /* 'assetManager' => [
+            'basePath' => '@webroot/backend/web/assets',
+            'baseUrl' => '@web/backend/web/assets'
+        ], */
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'oVBsyUO4WMWNdS4mIs20GT4-ez1VqnRC',
@@ -39,18 +43,23 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
-        'urlManager' => [
+        
+         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
+             'suffix'=>".html",
+            'rules' => [                
+                'login'=>'user/index',
+                'forget'=>'user/forget',
+                'logout'=>'user/logout',
+                'register'=>'user/register',
+                'index'=>'index/index',                
+                '<controller:(post|comment)>/<id:\d+>/<action:(create|update|delete)>'=>'<controller>/<action>',
             ],
         ],
-        */
+        
     ],
-    
-   
-    
+         
     'modules' => [
         'admin' => [
                   'class' => 'app\modules\admin\Module'

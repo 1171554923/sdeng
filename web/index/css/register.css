@@ -11,7 +11,8 @@
 .username{ background: #fff url(../images/reg_icon.png) 100% -35px no-repeat ;}
 .password{ background: #fff url(../images/reg_icon.png) 100% -78px no-repeat ;}
 .confrimpassword{ background: #fff url(../images/reg_icon.png) 100% -124px no-repeat ;}
-.accept{ height: 50px ; line-height: 50px;font-size: 12px;}
+.accept{ height: 35px ; line-height: 35px;font-size: 12px;}
+.accept a{color:blue}
 .help-block-error{color:red; font-size: 12px;}
 .button_style{height: 50px; line-height: 50px;}
 .button_style button { color: #ffffff; background: #ABBAC3 ;width: 100px;padding: 5px 0;  cursor: pointer;}

@@ -33,7 +33,7 @@ use yii\bootstrap\ActiveForm;
     	 			
     	 			<div class="blank"></div> 
                 <p class="back back_red" >
-                  	<a href="?r=user"><img src="index\images\arrow_l.png">返回到登陆</a>		
+                  	<a href="/login.html"><img src="index\images\arrow_l.png">返回到登陆</a>		
            	   </p>              
     	</div>        	 
    	 </div>	

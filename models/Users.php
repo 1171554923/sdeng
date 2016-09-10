@@ -19,9 +19,10 @@ use Yii;
  * @property integer $reg_time
  * @property integer $user_type
  */
-class Users extends \yii\db\ActiveRecord
-{
-    public $confrimpassword;
+class Users extends \yii\db\ActiveRecord{
+    public $confrimpassword;   
+    public $check;
+        
     /**
      * @inheritdoc
      */
@@ -30,31 +31,36 @@ class Users extends \yii\db\ActiveRecord
         return '{{%users}}';
     }
     
-   /*  private static  function allUser()
-    {
-        $user = new Admin();
-        $admin = $user->find('username')->asArray()->all();
-        return $admin;
-    } */
-    
+ 
+
     /**
      * @inheritdoc
      */
     public function rules()
-    {
+    {             
         return [
-            [['id' ,'username','email','confrimpassword', 'password', 'sex'], 'required'],
+            [['username','email','confrimpassword', 'password'], 'required'],
             ['email','unique','message'=>'邮箱已被注册'],  
             ['username','unique','message'=>'用户名已被使用'],
             ['username','string','max'=>40,'min'=>2,'tooLong'=>'用户名不能大于40位','tooShort'=>'用户名不能小于2位'],
-            ['password','string','max'=>40,'min'=>6,'tooLong'=>'密码不能大于40位','tooShort'=>'密码名不能小于6位'],
-            [['id', 'sex', 'last_login', 'reg_time', 'user_type'], 'integer'],
-            [['birthDay'], 'safe'],
-            ['email','email','message'=>'电子邮箱格式不正确'],
-            [['username', 'password', 'email'], 'string', 'max' => 40],
-            [['mobile_phone', 'last_ip'], 'string', 'max' => 15],             
+            ['password','string','max'=>40,'min'=>6,'tooLong'=>'密码不能大于40位','tooShort'=>'密码名不能小于6位'],                       
+            ['email','email','message'=>'电子邮箱格式不正确'],            
+            ['confrimpassword','checkPass'],
+            ['check','required','message'=>'请阅读同意水灯的《服务条款》']
         ];
     }
+    
+    /**
+     * 验证密码是否前后一直
+     * @param unknown $attribute
+     * @param unknown $params
+     */    
+        public function checkPass($attribute, $params)
+        {
+            if($this->confrimpassword !==  $_POST['Users']['password']){
+                    $this->addError($attribute, '密码前后不一致'); 
+            }              
+        }
     
     /**
      * Finds user by username
@@ -62,9 +68,9 @@ class Users extends \yii\db\ActiveRecord
      * @param string $username
      * @return static|null
      */
-    public static function findByUsername($username)
+    /* public static function findByUsername($username)
     {
-        $users = self::allUser();      
+        $users =  self::allUsers();                     
         foreach ($users as $user) {
             if (strcasecmp($user['username'], $username) === 0) {
                 return new static($user);
@@ -72,7 +78,7 @@ class Users extends \yii\db\ActiveRecord
         }
     
         return null;
-    }
+    } */
 
     /**
      * @inheritdoc
@@ -84,8 +90,7 @@ class Users extends \yii\db\ActiveRecord
             'username' => Yii::t('app', '用户名'),
             'password' => Yii::t('app', '用户密码'),
             'confrimpassword'=>yii::t('app', '确认密码'),
-            'email' => Yii::t('app', '电子邮箱'),           
-            'mobile_phone' => Yii::t('app', 'Mobile Phone'),
+            'email' => Yii::t('app', '电子邮箱'),                       
             'sex' => Yii::t('app', '性别'),
             'birthDay' => Yii::t('app', 'Birth Day'),
             'last_login' => Yii::t('app', '最后登陆时间'),
@@ -94,4 +99,15 @@ class Users extends \yii\db\ActiveRecord
             'user_type' => Yii::t('app', '//会员等级'),
         ];
     }
+    
+    public function beforeSave()
+    {
+       $this->password = md5($this->password);
+       return true;
+    }
+    
+    
+   
+    
+    
 }

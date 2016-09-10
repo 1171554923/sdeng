@@ -11,10 +11,8 @@ use yii\bootstrap\ActiveForm;
          <link rel = "Shortcut Icon" href="index\images\web_icon.ico" />
          <title><?=Html::encode($this->title) ?></title>
          <?=Html::cssFile('@web/index/css/common.css') ?>
-         <?=Html::cssFile('@web/index/css/register.css') ?>
-                                                  
-       	</head>
-       	
+         <?=Html::cssFile('@web/index/css/register.css') ?>                                                  
+       	</head>       	
 <body class="contain">  
 	 <div class="main">
 	 	<div class="title">
@@ -32,13 +30,15 @@ use yii\bootstrap\ActiveForm;
                   		<?=$form->field($model,'username',['template'=>'<input id="users-username" class="form-control username " placeholder="请输入账号" type="text" name="Users[username]"><div>{error}</div>
                         ']) ?>
                         
-                  		<?=$form->field($model,'password',['template'=>'<input id="users-password" class="form-control password " placeholder="请输入密码" type="text" name="Users[password]"><div>{error}</div>
+                  		<?=$form->field($model,'password',['template'=>'<input id="users-password" class="form-control password " placeholder="请输入密码" type="password" name="Users[password]"><div>{error}</div>
                         ']) ?>                        
-                  		<?=$form->field($model,'confrimpassword',['template'=>'<input id="users-confrimpassword" class="form-control confrimpassword " placeholder="请确认密码" type="text" name="Users[confrimpassword]"><div>{error}</div>
+                  		<?=$form->field($model,'confrimpassword',['template'=>'<input id="users-confrimpassword" class="form-control confrimpassword " placeholder="请确认密码" type="password" name="Users[confrimpassword]"><div>{error}</div>
                         ']) ?>
-                        <div class="accept">
-                        	<input type="checkbox" id="accept">我已阅读并接受<a href="#">水灯社区注册条款</a>	
-                        </div>
+                        
+                      <?=$form->field($model,'check',['template'=>"<div class=\"accept\">                        	   
+                        <input id=\"users-check\" type=\"checkbox\" name=\"Users[check]\" />                        	    
+                         我已认真阅读并同意<a href=\"#\">《服务条款》</a></div><div>{error}</div>"])
+                    ?>                        
                        <div class="button_style">
                   		<?= Html::resetButton('<img src="index\images\reset.png"> 重置')?>  <?= Html::submitInput('提交')?>
                   	  </div>                  

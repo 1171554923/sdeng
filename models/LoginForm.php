@@ -19,6 +19,9 @@ class LoginForm extends Model
     public $user;  //前段用户名
     public $userpassword; //前段用户密码
     public $captcha;
+    public $verify;
+    
+    
    
 
     private $_user = false;
@@ -42,6 +45,9 @@ class LoginForm extends Model
             ['captcha', 'string','min'=>4,'message'=>'验证码错误'],
             ['captcha', 'required','message'=>'验证码不能为空'], 
             
+            ['verify','captcha','message'=>"验证码错误",'captchaAction'=>'admin/login/captcha'],
+            
+          
             
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
@@ -64,18 +70,7 @@ class LoginForm extends Model
             'rememberMe'=>'记住密码'
         ];
     }
-    /**
-     * 验证前段密码
-     * @param unknown $attribute
-     * @param unknown $params
-     */
-    public  function validateUserPassword()
-    {
-        
-            
-    }
-    
-    
+      
     /**
      * Validates the password.
      * This method serves as the inline validation for password.
@@ -92,6 +87,16 @@ class LoginForm extends Model
             }
         }
     }
+    
+    public function validateUserPassword($attribute, $params)
+   {
+       if ($this->_user === false) {
+           $user= User::findByUsername($this->user);                  
+           if (!$user || !$user->validatePassword($this->userpassword)) {
+               $this->addError($attribute, '用户密码或者账号错误!');
+           }
+       }    
+   } 
 
     /**
      * Logs in a user using the provided username and password.
@@ -100,26 +105,22 @@ class LoginForm extends Model
     public function login()
     {        
             $admin = new Admin();
-            $user = $admin->find()->where(['username'=>$this->username])->one();
-            
+            $user = $admin->find()->where(['username'=>$this->username])->one();            
             $user->username = $this->username;
             $user->password = md5($this->password);
             $user->last_login = time();
             $user->last_ip = $_SERVER['REMOTE_ADDR'];
             $user->count_login= $user->count_login += 1; 
-                      
+            
             if($user->save())
-            {      
-               
-                $session = Yii::$app->session;
-                
+            {                    
+                $session = Yii::$app->session;                
                 if(!$session->isActive)
                 {
                     $session->open();
                 }
-                $session->set('user',$this->username);
-                
-                return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);                  
+                $session->set('user',$this->username);                
+//                 return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);                  
           }
     }
 
@@ -129,13 +130,26 @@ class LoginForm extends Model
      * @return User|null
      */
     public function getUser()
-    {
-       
+    {       
          if ($this->_user === false) {
             $this->_user = User::findByUsername($this->username);
         } 
         return $this->_user;
     }
+    
+    
+    
+   /**
+    * 前端验证
+    */
+    public function frontLogin()
+    {                   
+        $user= User::findByUsername($this->user);             
+        return Yii::$app->user->login($user, $this->rememberMe ? 3600*24*30 : 0);
+        
+    } 
+    
+    
     
     
 }

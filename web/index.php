@@ -1,5 +1,4 @@
 <?php
-
 // comment out the following two lines when deployed to production
 //是否开启调试模式
 defined('YII_DEBUG') or define('YII_DEBUG', true);

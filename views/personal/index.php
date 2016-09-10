@@ -8,7 +8,7 @@ use yii\helpers\Html;
  	</div>
  	
     <div class="pre_s">
-    	<div class="pre_img"><img src="index/images/custom.png"></div>
+    	<div class="pre_img"><img src="../index/images/custom.png"></div>
     	<div class="pre_t">
     		<span>@廖自然</span>
     		<ul>
@@ -31,10 +31,75 @@ use yii\helpers\Html;
     	</div>
     	
     	<div class="content">
-    	</div>
+    		<div class="write">
+    			<h5>@分享有趣的图片和最搞笑的视频给大家</h5>
+    			<textarea></textarea>
+    			<span class="photo"><em></em></span>
+    			<span class="vedio"><em></em></span>
+    			<span class="music"><em></em></span>
+    			<P>
+    				<span class="send">发布</span>
+    			</P>
+    		</div>
+    		<div class="blank"></div>
+    		<div class="main">
+    			<dl>
+    				 <dt>
+    					<p><span class="title">标题 : </span>大家都知道少女是个面包控，而现在，最火的面包连锁店应！</p>
+    					<span class="name">@廖自然</span>
+    				 </dt>    				 
+    				<dd>
+    					<div class="img"><img src="../index/images_content/photo1.jpg"></div>    					
+    				</dd>
+    				
+    				<span class="label"></span>
+    				<ul>
+            			<li><a href="#">#搞笑视频</a></li>
+            			<li><a href="#">#搞笑图片</a></li>
+            			<li><a href="#">#有趣</a></li>            			
+            		</ul>
+            		<div class="blank"></div>	
+            		<div class="buttom">
+            			<span class="zan"></span>
+            			<span class="notzan"></span>
+            			<span class="love"></span>
+            			<span class="comment"></span>                 			       			                 
+            		</div>	
+            		<div class="bshare-custom icon-medium"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+            		
+    			</dl>
+    			
+    			<dl>
+    				 <dt>
+    					<p><span class="title">标题 : </span>大家都知道少女是个面包控，而现在，最火的面包连锁店应！</p>
+    					<span class="name">@廖自然</span>
+    				 </dt>    				 
+    				<dd>
+    					<div class="img"><img src="../index/images_content/photo1.jpg"></div>    					
+    				</dd>
+    				
+    				<span class="label"></span>
+    				<ul>
+            			<li><a href="#">#搞笑视频</a></li>
+            			<li><a href="#">#搞笑图片</a></li>
+            			<li><a href="#">#有趣</a></li>            			
+            		</ul>
+            		<div class="blank"></div>	
+            		<div class="buttom">
+            			<span class="zan"></span>
+            			<span class="notzan"></span>
+            			<span class="love"></span>
+            			<span class="comment"></span>                 			       			                 
+            		</div>	
+            		<div class="bshare-custom icon-medium"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+            		
+    			</dl>    
+    			
+    		</div>
+    	</div><!-- end  content-->
     	
     	<div class="tag">
-    		<span class="title">热门搜索</span>
+    	 	<span class="title">热门搜索</span>
     		<ul>
     			<li class="blue"><a href="#">搞笑视频</a></li>
     			<li class="green"><a href="#">#搞笑图片</a></li>
@@ -54,7 +119,8 @@ use yii\helpers\Html;
     			<li><em>4</em><a href="#">骑猪看书</a><span>9919 粉丝</span></li>
     			<li><em>5</em><a href="#">看猪撞树</a><span>1212 粉丝</span></li>
     		</ol>
-    	</div>
+    	</div><!-- end tag -->
+    	
     </div>
     
     	

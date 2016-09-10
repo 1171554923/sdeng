@@ -100,9 +100,7 @@ $session =Yii::$app->session;
 															<i class="icon-lock"></i> 
 														</span>
 													</label>
-													
-												 <?= $form->field($model,'captcha')->widget(yii\captcha\Captcha::className(),
-											
+											 <?= $form->field($model,'captcha')->widget(yii\captcha\Captcha::className(),										
 	    [											
 	    'captchaAction'=>'login/captcha',											
 	    'imageOptions'=>['alt'=>'点击换图',											

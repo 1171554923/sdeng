@@ -3,7 +3,6 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 $this->title='登陆';
 ?>
-
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
         <head>
@@ -35,14 +34,24 @@ $this->title='登陆';
             			    ['template'=>"<input id=\"loginform-userpassword\" name=\"LoginForm[userpassword]\"
             			        class=\"text\" placeholder=\"输入用户密码\"
             			        style=\"color: #FFFFFF !
-                        important\" type=\"text\"><div class=\"error\">{error}</div>"])?>
+                        important\" type=\"password\"><div class=\"error\">{error}</div>"])?>
             		</div>								
-															
-															
+					
+					<?php  if($loginNum >= 3): ?>
+					 <?= $form->field($model,'captcha')->widget(yii\captcha\Captcha::className(),										
+	    [											
+	    'captchaAction'=>'admin/login/captcha',											
+	    'imageOptions'=>['alt'=>'点击换图',											
+	    'title'=>'点击换图',
+	    'style'=>'cursor:pointer'],											
+	    'template'=>"<div class=\"row\"><div class=\"col-xs-6\">{input}</div><div class=\"col-xs-6\">
+{image}</div></div>",			        						
+	        ])->label('') ?>											
+				 <?php endif; ?>										
             		<div class="mb2">
             		<?= Html::submitButton('登陆',['class'=>'submit'])?>            		 
             		 </div>
-            		 <a href="?r=user/forget" class="login-fgetpwd" >忘记密码？</a>
+            		 <a href="/forget.html" class="login-fgetpwd" >忘记密码？</a>
             		 <?= $form->field($model,'rememberMe',['template'=>'记住密码 <input id="loginform-rememberme" class="form-control" type="checkbox" value="1" name="LoginForm[rememberMe]">']) ?>            		 
             	<?php ActiveForm::end()?>
             	
@@ -56,7 +65,7 @@ $this->title='登陆';
             		</div>
             	</div>
             	<div class="sas">
-            		<a href="?r=user/register">还没注册账号！</a>
+            		<a href="/register.html">还没注册账号！</a>
             	</div>
             </div>            
 	</body>
